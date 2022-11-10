@@ -7,22 +7,21 @@ import java.util.StringTokenizer;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(br.readLine());
-
-        HashMap<Integer, Integer> map = new HashMap<>();
         StringBuilder sb = new StringBuilder();
-
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        StringTokenizer st;
+        int N = Integer.parseInt(br.readLine());
+        HashMap<Integer, Integer> myCards = new HashMap<>();
+        st = new StringTokenizer(br.readLine(), " ");
         for (int i = 0; i < N; i++) {
-            int temp = Integer.parseInt(st.nextToken());
-            map.put(temp, map.getOrDefault(temp, 0) + 1);
+            int num = Integer.parseInt(st.nextToken());
+            myCards.put(num, myCards.getOrDefault(num, 0) + 1);
         }
 
         int M = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine(), " ");
         for (int i = 0; i < M; i++) {
-            int temp = Integer.parseInt(st.nextToken());
-            sb.append((map.get(temp) == null ? 0 : map.get(temp)) + " ");
+            int findNum = Integer.parseInt(st.nextToken());
+            sb.append(myCards.getOrDefault(findNum, 0)).append(" ");
         }
 
         System.out.println(sb);
